@@ -27,6 +27,12 @@ class fntests(unittest.TestCase):
         self.block = qrcode (msg = msg)
         assert (self.block.msgtype == 1)# test 3 fails, alphanumeric message in not recongised
     
+    def test4(self):
+        '''This test checks that the version number chosen for a very short messgae in 1'''
+        msg = 123
+        expver = 1
+        self.block = qrcode(msg = msg)
+        assert (self.block.size == expver)#Test 4 fails, short message version not 1
         
 if __name__ == '__main__':
     unittest.main()
