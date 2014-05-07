@@ -34,5 +34,9 @@ class fntests(unittest.TestCase):
         self.block = qrcode(msg = msg)
         assert (self.block.size == expver)#Test 4 fails, short message version not 1
         
+    def test5(self):
+        self.block = qrcode(msg = '0')
+        assert (len(self.block.sizeListChar)==40)#test5 fails - data items not correct
+        
 if __name__ == '__main__':
     unittest.main()

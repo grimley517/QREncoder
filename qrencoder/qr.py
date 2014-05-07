@@ -28,20 +28,24 @@ class qrc(object):
                 sizeBin = sizeBin -2
             sizeListBin.append(sizeBin)
         D = len(self.msg)
+    
         
         R = D%3
         if R == 1:
             R = 4
         elif R==2:
             R = 7
-        bitsRequired = math.ceil(10 *(D/3)+R)#this might be better as a floor - check edge cases.
+        D = math.floor(D/3)
+        D = 10*D
+        bitsRequired = D+R
         bitsRequired = int(bitsRequired)
         ver = 1
         for size in sizeListBin:
             if bitsRequired > size:
                 ver +=1
         self.size = ver
-        
+        #if self.size > 40:
+        #    raise ValueError ('Version too Large')
         
         
     def __repr__(self):
