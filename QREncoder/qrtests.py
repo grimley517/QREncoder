@@ -39,6 +39,8 @@ class fntests(unittest.TestCase):
         self.block = qrcode(msg = '0')
         numberOfVersions = 40
         assert (len(self.block.sizeList)==numberOfVersions)#test5 fails - data items not correct
+        for block in self.block.sizeList:
+            assert len(block) ==4 #Test 5 Fails - A block in the version size list does not have 4 items
         
 if __name__ == '__main__':
     unittest.main()
