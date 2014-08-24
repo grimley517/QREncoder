@@ -1,4 +1,9 @@
 import math
+try:
+    from PIL import Image, ImageDraw
+except ImportError:
+    import image, ImageDraw
+
 class qrc(object):
     sizemin = 1
     sizemax = 40
@@ -64,6 +69,10 @@ class qrc(object):
         if answer > 40:
             raise ValueError('Size too large for any version')
         return (answer)
+
+    def getmatrix(self):
+        answer = [[]]
+        
 
 
     def __repr__(self):
